@@ -1,3 +1,12 @@
+<?php
+
+?>
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -97,192 +106,18 @@
        
   
 
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
 
 
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
+     
 
 
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
+      
 
  </div>
   
     
  
-    <!-- recommendations container added flex property -->
-    <div class="container">
-      <div class="page-header p-3">
-        <h1 style="color: green">Trending</h1>
-        <hr>
-
-        </div>
   
-        <div class="container d-flex flex-wrap justify-content-center">
-  
-  
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-       
-  
-
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-
-
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-
-
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
-        </div>
-
- </div>
-
-</div>
 
 
 <hr class="my-5">
