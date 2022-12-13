@@ -1,3 +1,25 @@
+<?php
+$err = "";
+require "functions.php";
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $phone = $_POST["phone"];
+  $password = $_POST["password"];
+
+ if(varify($phone,$password)==false)
+ {
+    $err = "Wrong phone or password";
+ }
+ else{
+    session_start();
+    $_SESSION["uid"] = $uid;
+    header("Location:home.php");
+    
+ }
+ 
+ }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,51 +37,14 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="icons/logo.jpg" alt="" width="50" height="50">
-          </a>
-        <a class="navbar-brand" href="#">Arkan Developers</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Property
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Sell property</a>
-                <a class="dropdown-item" href="#">Buy a property</a>
-                <a class="dropdown-item" href="#">Get recommendations</a>
-                <a class="dropdown-item" href="#">Contact expert</a>
-                <a class="dropdown-item" href="#">Buy a property</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><img src="icons/history.png" alt="" width="25" height="25"> History</a>
-              </div>
-            </li>
-            <button type="button" class="btn btn-outline-primary">Sign in</button>
-          </ul>
-          
-          <form class="form-inline my-2 my-lg-0">
-       
-          <input class="form-control mr-sm-2" type="search" placeholder="Enter name of the city" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            
-          </form>
-       
-        </div>
-      </nav>
+  <?php
+  require "navbar.php";  ?>
 
-  <section class="vh-100 gradient-custom">
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+
+
+<section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -72,24 +57,20 @@
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="tel" id="typeEmailX" class="form-control form-control-lg" />
+                <input type="tel" id="typeEmailX" name="phone" class="form-control form-control-lg" />
                 <label class="form-label" for="typeEmailX">Phone</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+             
 
               <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
 
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
+           <p style="color:red"><?php echo $err;?></p>
 
             </div>
 
@@ -106,9 +87,7 @@
 </section>
 
 
-
-
-
+</form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
