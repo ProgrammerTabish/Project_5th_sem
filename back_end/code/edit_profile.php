@@ -11,50 +11,11 @@
     <title>Profile</title>
   </head>
   <body>
+<?php
+include 'navbar.php';
+?>
+  
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="icons/logo.jpg" alt="" width="50" height="50">
-          </a>
-        <a class="navbar-brand" href="#">Arkan Developers</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Property
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Sell property</a>
-                <a class="dropdown-item" href="#">Buy a property</a>
-                <a class="dropdown-item" href="#">Get recommendations</a>
-                <a class="dropdown-item" href="#">Contact expert</a>
-                <a class="dropdown-item" href="#">Buy a property</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><img src="icons/history.png" alt="" width="25" height="25"> History</a>
-              </div>
-            </li>
-          
-          </ul>
-          
-          <form class="form-inline my-2 my-lg-0">
-       
-          <input class="form-control mr-sm-2" type="search" placeholder="Enter name of the city" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            
-          </form>
-       
-        </div>
-      </nav>
 
 <form>
 
@@ -96,10 +57,7 @@
                   <h5 class="my-3"><input type="file"><p style="color:red">*Upload profile picture</p></h5>
                   <p class="text-muted mb-1"><input type="text" placeholder="Property dealer"></p>
                 
-                  <div class="d-flex justify-content-center mb-2">
-                    <button type="submit" class="btn btn-success">Change!</button>
-
-                  </div>
+                 
                 </div>
               </div>
               <div class="card mb-4 mb-lg-0">
@@ -136,14 +94,7 @@
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">UID</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0"><input type="text" placeholder="1235345324"></p>
-                    </div>
-                  </div>
+               
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
@@ -154,18 +105,13 @@
                         <div class="col-md-8 mb-4">
                           <div class="card mb-4">
                             <div class="card-header py-3">
-                              <h5 class="mb-0">Address info</h5>
+                              <h5 class="mb-0">Address info</h5>      
                             </div>
                             <div class="card-body">
-                              <form>
+                              
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row mb-4">
-                                  <div class="col">
-                                    <div class="form-outline">
-                                      <input type="text" id="form7Example1" class="form-control" />
-                                      <label class="form-label" for="form7Example1">country</label>
-                                    </div>
-                                  </div>
+                                  
                                   <div class="col">
                                     <div class="form-outline">
                                       <input type="text" id="form7Example2" class="form-control" />
@@ -181,31 +127,10 @@
                                 </div>
                       
                                 <!-- Text input -->
-                                <div class="form-outline mb-4">
-                                  <input type="text" id="form7Example4" class="form-control" />
-                                  <label class="form-label" for="form7Example4">Area</label>
-                                </div>
-                      
-                                <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                  <input type="text" id="form7Example5" class="form-control" />
-                                  <label class="form-label" for="form7Example5">Appartment number if exist:</label>
-                                </div>
-                      
-                                <!-- Number input -->
-                                <div class="form-outline mb-4">
-                                  <input type="text" id="form7Example6" class="form-control" />
-                                  <label class="form-label" for="form7Example6">Plot number</label>
-                                </div>
-                      
-                                <!-- Message input -->
-                                <div class="form-outline mb-4">
-                                  <textarea class="form-control" id="form7Example7" rows="4"></textarea>
-                                  <label class="form-label" for="form7Example7">Additional information like landmark</label>
-                                </div>
+                                
                       
                                 <button type="submit" class="btn btn-success">Change!</button>
-                              </form>
+                           
                             </div>
                           </div>
                         </div>

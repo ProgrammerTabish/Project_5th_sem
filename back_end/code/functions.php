@@ -4,7 +4,7 @@ function fire($query)
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "project_5th_sem";
+$dbname = "Project_5th_sem";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
