@@ -30,14 +30,19 @@
         </div>
       </li>
       <?php
-    if (session_status() === PHP_SESSION_NONE) {
-        $btn_str = "Sign in";
+      session_start();
+      
+      $btn_str = "Sign in";
         $btn_location = "login.php";
-  }
-  else{
+       if($_SESSION["uid_session"]!="")
+       {
         $btn_str = "Profile";
         $btn_location = "view_profile.php";
-  }
+       }
+ 
+    
+     
+ 
       ?>
       <button type="button" onclick="location.href='<?php echo $btn_location; ?>'" class="btn btn-outline-primary"><?php echo $btn_str;?></button>
     </ul>

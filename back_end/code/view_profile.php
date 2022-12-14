@@ -1,3 +1,7 @@
+<?php require "functions.php";
+require "navbar.php";
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,7 +43,7 @@
                   <p class="text-muted mb-1">Property dealer</p>
                   <p class="text-muted mb-4">Aurangabad</p>
                   <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary">Edit profile</button>
+                    <button type="button" onclick="window.location.href='edit_profile.php'" class="btn btn-primary">Edit profile</button>
 
                   </div>
                 </div>

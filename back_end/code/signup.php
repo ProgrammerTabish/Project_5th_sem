@@ -42,13 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = $_POST["password"];
   $rep = $_POST["repeat_password"];
 $city=$_POST["city"];
-  $state = $_POSt["state"];
+  $state = $_POST["state"];
   $scr = validating($ph) + v_pass($password, $rep) + v_email($em);
   if ($scr == 3 && varify($ph,$password)==false) {
 
     echo fire("INSERT IGNORE INTO `user_info` (`uid`, `name`, `email`, `city`, `state`, `password`) VALUES ('$ph', '$name', '$em', '$city', '$state', '$rep');");
     session_start();
-    $_SESSION["uid"] = $ph;
+    $_SESSION["uid_session"] = $ph;
     header("location: home.php");
   } 
   else {

@@ -12,7 +12,7 @@ require "functions.php";
  }
  else{
     session_start();
-    $_SESSION["uid"] = $uid;
+    $_SESSION["uid_session"] = $phone;
     header("Location:home.php");
     
  }
