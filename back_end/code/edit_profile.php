@@ -33,7 +33,13 @@ $ph=$_SESSION["uid_session"];
   
 fire("UPDATE `user_info` SET `name` = $name, `state`=$state, `city`=$city WHERE `user_info`.`uid` = '$ph';");
 fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
+ $path = upload_img("image_profile","/profile_images");
+ if($path!=0){
+    fire("UPDATE `user_profile` SET `profile_image` = '$path' WHERE `user_profile`.`uid` = '$ph';");
+ }
+ 
 
+  
 }
 
 
@@ -77,7 +83,7 @@ fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
                 <div class="card-body text-center">
                   <img src="images/profile.jpg" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3"><input name="image" type="file"><p style="color:red">*Upload profile picture</p></h5>
+                  <h5 class="my-3"><input name="image_profile" type="file"><p style="color:red">*Upload profile picture</p></h5>
                   <p class="text-muted mb-1"><input name="about" type="text" placeholder="Property dealer"></p>
                 
 

@@ -44,6 +44,8 @@ require "navbar.php";
                   <p class="text-muted mb-4">Aurangabad</p>
                   <div class="d-flex justify-content-center mb-2">
                     <button type="button" onclick="window.location.href='edit_profile.php'" class="btn btn-primary">Edit profile</button>
+                    <hr>
+                    <button type="button" onclick="window.location.href='kill_session.php'" class="btn btn-danger ">Logout</button>
 
                   </div>
                 </div>
