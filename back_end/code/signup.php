@@ -47,6 +47,8 @@ $city=$_POST["city"];
   if ($scr == 3 && varify($ph,$password)==false) {
 
     echo fire("INSERT IGNORE INTO `user_info` (`uid`, `name`, `email`, `city`, `state`, `password`) VALUES ('$ph', '$name', '$em', '$city', '$state', '$rep');");
+    fire("INSERT INTO `user` (`uid`, `type`) VALUES ('$ph', '');");
+    fire("INSERT INTO `user_profile` (`uid`, `profile_image`, `about`) VALUES ('$ph', '', '');");
     session_start();
     $_SESSION["uid_session"] = $ph;
     header("location: home.php");

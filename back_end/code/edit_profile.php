@@ -13,11 +13,34 @@
   <body>
 <?php
 include 'navbar.php';
-?>
+require 'functions.php';
+
+$err = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $scr = 0;
+
+  //validaions
+
+session_start();
+
+$ph=$_SESSION["uid_session"];
+  $image = $_POST["image"];
+  $about = $_POST["about"];
+  $name = $_POST["name"];
+  $city = $_POST["city"];
+  $state = $_POST["state"];
+  $scr = validating($ph) + v_pass($password, $rep) + v_email($em);
   
+fire("UPDATE `user_info` SET `name` = $name, `state`=$state, `city`=$city WHERE `user_info`.`uid` = '$ph';");
+fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
+
+}
 
 
-<form>
+
+
+?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
 
 
 
@@ -54,10 +77,11 @@ include 'navbar.php';
                 <div class="card-body text-center">
                   <img src="images/profile.jpg" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3"><input type="file"><p style="color:red">*Upload profile picture</p></h5>
-                  <p class="text-muted mb-1"><input type="text" placeholder="Property dealer"></p>
+                  <h5 class="my-3"><input name="image" type="file"><p style="color:red">*Upload profile picture</p></h5>
+                  <p class="text-muted mb-1"><input name="about" type="text" placeholder="Property dealer"></p>
                 
-                 
+
+
                 </div>
               </div>
               <div class="card mb-4 mb-lg-0">
@@ -72,28 +96,13 @@ include 'navbar.php';
                       <p class="mb-0">Username</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0"><input type="text" placeholder="Shaikh Zaka Tabish"></p>
+                      <p class="text-muted mb-0"><input type="text" name="name" placeholder="Shaikh Zaka Tabish"></p>
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Email</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0"><input type="text" placeholder="tabish@gmail.com"></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Phone</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0"><input type="text" placeholder="9087197329874"></p>
-                    </div>
-                  </div>
-                  <hr>
+              
+                 
+                 
                
                   <hr>
                   <div class="row">
@@ -114,7 +123,7 @@ include 'navbar.php';
                                   
                                   <div class="col">
                                     <div class="form-outline">
-                                      <input type="text" id="form7Example2" class="form-control" />
+                                      <input type="text" id="form7Example2"  name='state' class="form-control" />
                                       <label class="form-label" for="form7Example2">State</label>
                                     </div>
                                   </div>
@@ -122,7 +131,7 @@ include 'navbar.php';
                       
                                 <!-- Text input -->
                                 <div class="form-outline mb-4">
-                                  <input type="text" id="form7Example3" class="form-control" />
+                                  <input type="text" id="form7Example3" name='city' class="form-control" />
                                   <label class="form-label" for="form7Example3">City</label>
                                 </div>
                       
