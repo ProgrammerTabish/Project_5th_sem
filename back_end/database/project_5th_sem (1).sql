@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 18, 2022 at 02:10 PM
+-- Generation Time: Dec 18, 2022 at 02:40 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -39,12 +39,7 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`ulpin`, `state`, `city`, `landmark`) VALUES
-('123123', 'asdf', 'asdf', 'asdf'),
-('20202010', 'Maharashtra', 'Aurangabad', 'sdf'),
-('20202011', 'Maharashtra', 'Aurangabad', 'sdf'),
-('2020201100', 'Maharashtra', 'Aurangabad', 'sdf'),
-('20202011111', 'Maharashtra', 'Aurangabad', 'asdf'),
-('2020201190', 'Maharashtra', 'Aurangabad', 'sdf');
+('2020201', 'Maharashtra', 'Aurangabad', 'sdfgs');
 
 -- --------------------------------------------------------
 
@@ -64,12 +59,7 @@ CREATE TABLE `details` (
 --
 
 INSERT INTO `details` (`ulpin`, `area`, `rate`, `image_1`) VALUES
-('123123', 'asdf', 'asdf', ''),
-('20202010', '123', '123', ''),
-('20202011', '123', '123', ''),
-('2020201100', '123', '123', ''),
-('20202011111', 'asdf', '123', ''),
-('2020201190', '123', '123', '');
+('2020201', 'asdf', '123', '');
 
 -- --------------------------------------------------------
 
@@ -87,12 +77,7 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`ulpin`, `pdf_addr`) VALUES
-('123123', ''),
-('20202010', ''),
-('20202011', ''),
-('2020201100', ''),
-('20202011111', ''),
-('2020201190', '');
+('2020201', '');
 
 -- --------------------------------------------------------
 
@@ -103,7 +88,7 @@ INSERT INTO `documents` (`ulpin`, `pdf_addr`) VALUES
 CREATE TABLE `property` (
   `ulpin` varchar(14) NOT NULL,
   `uid` varchar(15) NOT NULL,
-  `registered_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `registered_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `approval_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -112,7 +97,7 @@ CREATE TABLE `property` (
 --
 
 INSERT INTO `property` (`ulpin`, `uid`, `registered_time`, `approval_status`) VALUES
-('20202010', '', '0000-00-00 00:00:00', 0);
+('2020201', '1231231231', '2022-12-18 13:33:48', 0);
 
 -- --------------------------------------------------------
 
@@ -144,7 +129,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`uid`, `type`) VALUES
 ('123', '123'),
-('1231231231', 'Dealer'),
+('1231231231', 'seller'),
 ('9130080236', 'asdf');
 
 -- --------------------------------------------------------
@@ -186,7 +171,7 @@ CREATE TABLE `user_profile` (
 --
 
 INSERT INTO `user_profile` (`uid`, `profile_image`) VALUES
-('1231231231', 'uplaod/Screenshot from 2022-12-16 09-54-00.png'),
+('1231231231', 'uplaod/Screenshot from 2022-12-16 09-59-06.png'),
 ('9130080236', 'uplaod/Screenshot from 2022-12-16 09-58-45.png');
 
 --
