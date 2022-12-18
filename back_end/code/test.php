@@ -1,6 +1,31 @@
 <?php
 require 'functions.php';
 
-echo fire("INSERT INTO `user` (`uid`, `type`) VALUES ('123', '123')");
+
 
 ?>
+<?php
+
+if(isset($_POST["submit"])) 
+{
+$dir="upload";
+  $file = "fileToUpload";
+  upload($dir, $file);
+}
+
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="test.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+</body>
+</html>

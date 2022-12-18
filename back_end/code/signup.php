@@ -45,19 +45,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $city=$_POST["city"];
   $state = $_POST["state"];
   $scr = validating($ph) + v_pass($password, $rep) + v_email($em);
-  // if ( $scr==3 && varify($ph,$password)==false) {
+  if ( $scr==3 && varify($ph,$password)==false) {
 
-  //   fire("INSERT IGNORE INTO `user_info` (`uid`, `name`, `email`, `city`, `state`, `password`) VALUES ('$ph', '$name', '$em', '$city', '$state', '$rep')");
-  //   fire("INSERT INTO `user` (`uid`, `type`) VALUES ('$ph', '');");
-  //   fire("INSERT INTO `user_profile` (`uid`, `profile_image`) VALUES ('$ph', '');");
-  //   fire("INSERT INTO `user` (`uid`, `type`) VALUES ('$ph', '');");
-  //   session_start();
-  //   $_SESSION["uid_session"] = $ph;
-  //   header("location: home.php");
-  // } 
-  // else {
-  //   $err = "Enter valid credentials or the Phone number is already registered!";
-  // }
+    fire("INSERT IGNORE INTO `user_info` (`uid`, `name`, `email`, `city`, `state`, `password`) VALUES ('$ph', '$name', '$em', '$city', '$state', '$rep')");
+    fire("INSERT INTO `user` (`uid`, `type`) VALUES ('$ph', '');");
+    fire("INSERT INTO `user_profile` (`uid`, `profile_image`) VALUES ('$ph', '');");
+    fire("INSERT INTO `user` (`uid`, `type`) VALUES ('$ph', '');");
+    session_start();
+    $_SESSION["uid_session"] = $ph;
+    header("location: home.php");
+  } 
+  else {
+    $err = "Enter valid credentials or the Phone number is already registered!";
+  }
 }
 
 
@@ -198,7 +198,7 @@ require "navbar.php";
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+                  <img src="icons/logo.jpg" class="img-fluid" alt="Sample image">
 
                 </div>
               </div>

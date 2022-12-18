@@ -20,11 +20,10 @@
           Manage Property
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Sell property</a>
+          <a class="dropdown-item" href="register_property.php">Sell property</a>
           <a class="dropdown-item" href="#">Buy a property</a>
-          <a class="dropdown-item" href="#">Get recommendations</a>
-          <a class="dropdown-item" href="#">Contact expert</a>
-          <a class="dropdown-item" href="#">Buy a property</a>
+          <a class="dropdown-item" href="#">Notifications</a>
+          
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#"><img src="icons/history.png" alt="" width="25" height="25"> History</a>
         </div>
@@ -47,11 +46,11 @@
       <button type="button" onclick="location.href='<?php echo $btn_location; ?>'" class="btn btn-outline-primary"><?php echo $btn_str;?></button>
     </ul>
 
-    <form class="form-inline my-2 my-lg-0">
+    <form action="search.php" type="POST" class="form-inline my-2 my-lg-0">
 
       <input class="form-control mr-sm-2" type="search" placeholder="Enter name of the city" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
+ 
     </form>
 
   </div>

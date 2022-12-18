@@ -1,6 +1,10 @@
 <?php require "functions.php";
 require "navbar.php";
-
+session_start();
+$ph=$_SESSION["uid_session"];
+$info=$user_i = fire("SELECT * FROM `user_info` WHERE `uid`=$ph;")->fetch_assoc();
+$usr = fire("SELECT * FROM `user` WHERE `uid`=$ph;")->fetch_assoc();
+$usrp = fire("SELECT * FROM `user_profile` WHERE `uid`=$ph;")->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,11 +41,11 @@ require "navbar.php";
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="images/profile.jpg" alt="avatar"
+                  <img src="<?php echo $usrp["profile_image"];?>" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3">Zaka Tabish</h5>
-                  <p class="text-muted mb-1">Property dealer</p>
-                  <p class="text-muted mb-4">Aurangabad</p>
+                  <h5 class="my-3"><?php echo $info["name"];?></h5>
+                  <p class="text-muted mb-1"><?php echo $usr["type"];?></p>
+                  <p class="text-muted mb-4"><?php echo $info["city"];?></p>
                   <div class="d-flex justify-content-center mb-2">
                     <button type="button" onclick="window.location.href='edit_profile.php'" class="btn btn-primary">Edit profile</button>
                     <hr>
@@ -62,7 +66,7 @@ require "navbar.php";
                       <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Shaikh Zaka Tabish</p>
+                      <p class="text-muted mb-0"><?php echo $info["name"];?></p>
                     </div>
                   </div>
                   <hr>
@@ -71,7 +75,7 @@ require "navbar.php";
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">tabish@gmail.com</p>
+                      <p class="text-muted mb-0"><?php echo $info["email"];?></p>
                     </div>
                   </div>
                   <hr>
@@ -80,25 +84,18 @@ require "navbar.php";
                       <p class="mb-0">Phone</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">9087197329874</p>
+                      <p class="text-muted mb-0"><?php echo $info["uid"];?></p>
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Mobile</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">1235345324</p>
-                    </div>
-                  </div>
+                  
+                  
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
                       <p class="mb-0">Address</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Maharashtra, Aurangabad</p>
+                      <p class="text-muted mb-0"><?php echo $info["state"];?>, <?php echo $info["city"];?></p>
                     </div>
                   </div>
                 </div>

@@ -12,58 +12,56 @@
   </head>
   <body>
 <?php
+if(isset($_POST["submit"])) 
+  {
+    
+    upload("uploads/","fileToUpload");  
+  } 
 include 'navbar.php';
 require 'functions.php';
 
+session_start();
+$ph=$_SESSION["uid_session"];
+$info=$user_i = fire("SELECT * FROM `user_info` WHERE `uid`=$ph;")->fetch_assoc();
+$usr = fire("SELECT * FROM `user` WHERE `uid`=$ph;")->fetch_assoc();
+$usrp = fire("SELECT * FROM `user_profile` WHERE `uid`=$ph;")->fetch_assoc();
 $err = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
   $scr = 0;
-
   //validaions
 
-session_start();
-
-$ph=$_SESSION["uid_session"];
   $image = $_POST["image"];
   $about = $_POST["about"];
   $name = $_POST["name"];
   $city = $_POST["city"];
   $state = $_POST["state"];
-  $scr = validating($ph) + v_pass($password, $rep) + v_email($em);
+  $file=$_POST["fileToUpload"];
+
+
   
-fire("UPDATE `user_info` SET `name` = $name, `state`=$state, `city`=$city WHERE `user_info`.`uid` = '$ph';");
-fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
- $path = upload_img("image_profile","/profile_images");
+fire("UPDATE `user_info` SET `name` = '$name', `state`='$state', `city`='$city' WHERE `user_info`.`uid` = '$ph';");
+fire("UPDATE `user` SET `type` = '$about' WHERE `user`.`uid` = '$ph';");
+
+
+
+    $dir = "uplaod/";
+    $file = "fileToUpload";
+   $path = upload($dir, $file);
+
+  
+
+  
+
  if($path!=0){
+  
     fire("UPDATE `user_profile` SET `profile_image` = '$path' WHERE `user_profile`.`uid` = '$ph';");
  }
  
 
   
 }
-
-
-
-
 ?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
     <section style="background-color: #eee;">
         <div class="container py-5">
           <div class="row">
@@ -81,13 +79,10 @@ fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="images/profile.jpg" alt="avatar"
+                  <img src="<?php echo $usrp["profile_image"];?>" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3"><input name="image_profile" type="file"><p style="color:red">*Upload profile picture</p></h5>
-                  <p class="text-muted mb-1"><input name="about" type="text" placeholder="Property dealer"></p>
-                
-
-
+                  <h5 class="my-3"> <input type="file" name="fileToUpload" id="fileToUpload"><p style="color:red">*Upload profile picture</p></h5>
+                  <p class="text-muted mb-1"><input name="about" type="text" placeholder="<?php echo $usr["type"];?>"></p>
                 </div>
               </div>
               <div class="card mb-4 mb-lg-0">
@@ -102,14 +97,10 @@ fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
                       <p class="mb-0">Username</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0"><input type="text" name="name" placeholder="Shaikh Zaka Tabish"></p>
+                      <p class="text-muted mb-0"><input type="text" name="name" placeholder="<?php echo $info["name"];?>"></p>
                     </div>
                   </div>
                   <hr>
-              
-                 
-                 
-               
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
@@ -123,27 +114,22 @@ fire("UPDATE `user` SET `type` = 'Pro' WHERE `user`.`uid` = '$ph';");
                               <h5 class="mb-0">Address info</h5>      
                             </div>
                             <div class="card-body">
-                              
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row mb-4">
                                   
                                   <div class="col">
                                     <div class="form-outline">
-                                      <input type="text" id="form7Example2"  name='state' class="form-control" />
+                                      <input type="text" id="form7Example2"  name='state' placeholder="<?php echo $info["state"];?>" class="form-control" />
                                       <label class="form-label" for="form7Example2">State</label>
                                     </div>
                                   </div>
                                 </div>
-                      
                                 <!-- Text input -->
                                 <div class="form-outline mb-4">
-                                  <input type="text" id="form7Example3" name='city' class="form-control" />
+                                  <input type="text" placeholder="<?php echo $info["city"];?>" id="form7Example3" name='city' class="form-control" />
                                   <label class="form-label" for="form7Example3">City</label>
                                 </div>
-                      
                                 <!-- Text input -->
-                                
-                      
                                 <button type="submit" class="btn btn-success">Change!</button>
                            
                             </div>
