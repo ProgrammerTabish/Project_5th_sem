@@ -44,28 +44,32 @@
     fire("INSERT INTO `details` (`ulpin`, `area`, `rate`, `image_1`) VALUES ('$ulp', '$ar', '$rt', '');");
     fire("INSERT INTO `documents` (`ulpin`, `pdf_addr`) VALUES ('$ulp', '');");
     fire("INSERT INTO `address` (`ulpin`, `state`, `city`, `landmark`) VALUES ('$ulp', '$st', '$ct', '$lm');");
-    fire("INSERT INTO `property` (`ulpin`, `uid`, `registered_time`, `approval_status`) VALUES ('$ulp', '$ph', 'CURRENT_TIME()', '0');");
-  }
-  if (isset($_POST["submit"])) {
+    fire("INSERT INTO `property` (`ulpin`, `uid`, `registered_time`, `approval_status`) VALUES ('$ulp', '$ph', current_timestamp(), '0');");
+ 
+ 
+    
+     
 
-    $img_file = upload("uploads/", "fileToUpload1");
-    if ($img_file != 0) {
-      fire("UPDATE `details` SET `image_1` = '$img_file' WHERE `details`.`ulpin` = '$ulp';");
-    }
-    $pdf_file = upload("uploads/", "fileToUpload2");
-    if ($pdf_file != 0) {
-      fire("UPDATE `documents` SET `pdf_addr` = '$pdf_file' WHERE `documents`.`ulpin` = '$ulp';");
-    }
-  }
 
+      
+    $dir = "uplaod/";
+    $file1 = "fileToUpload1";
+    $file2 = "fileToUpload2";
+    $path1 = upload($dir, $file1);
+    $path2 = upload($dir, $file2);
+   
+
+  
+
+  
+
+ if($path1!=0 && $path2!=0){
+      echo "$path1";
+   
+
+ }
+ }
   ?>
-
-
-
-
-
-
-
   <!-- recommendations container added flex property -->
   <div class="container">
     <div class="page-header p-3">

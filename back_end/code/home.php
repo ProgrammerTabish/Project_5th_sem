@@ -47,13 +47,19 @@
         <div class="card m-3" style="width: 18rem;">
           <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
+            <h5 class="card-title">Type:</h5>
+            <p class="card-text">Discription:</p>
           </div>
           <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
+          <li class="list-group-item">City:</li>
+          <li class="list-group-item">District:</li>
+              <li class="list-group-item">Rate:</li>
+            <li class="list-group-item">Area:</li>
+            <li class="list-group-item">Registration status:</li>
+            <li class="list-group-item"><a href="" download="pdf">
+  Download property documents!
+</a>
+</li>
             <li class="list-group-item">Address</li>
           </ul>
           <div class="card-body">
