@@ -22,7 +22,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="register_property.php">Sell property</a>
           <a class="dropdown-item" href="property-grid.php">Buy a property</a>
-          <a class="dropdown-item" href="#">Notifications</a>
+
           
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#"><img src="icons/history.png" alt="" width="25" height="25"> History</a>

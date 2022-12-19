@@ -45,6 +45,7 @@
     fire("INSERT INTO `documents` (`ulpin`, `pdf_addr`) VALUES ('$ulp', '');");
     fire("INSERT INTO `address` (`ulpin`, `state`, `city`, `landmark`) VALUES ('$ulp', '$st', '$ct', '$lm');");
     fire("INSERT INTO `property` (`ulpin`, `uid`, `registered_time`, `approval_status`) VALUES ('$ulp', '$ph', current_timestamp(), '0');");
+    
  
  
     
@@ -56,18 +57,16 @@
     $file1 = "fileToUpload1";
     $file2 = "fileToUpload2";
     $path1 = upload($dir, $file1);
+  
+
     $path2 = upload($dir, $file2);
-   
-
   
-
-  
-
  if($path1!=0 && $path2!=0){
-      echo "$path1";
-   
-
+    
+     fire("UPDATE `details` SET `image_1` = '$path1' WHERE `details`.`ulpin` = '$ulp';");
+  fire("UPDATE `documents` SET `pdf_addr` = '$path2' WHERE `documents`.`ulpin` = '$ulp';");
  }
+   
  }
   ?>
   <!-- recommendations container added flex property -->

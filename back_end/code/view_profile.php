@@ -48,6 +48,18 @@ $usrp = fire("SELECT * FROM `user_profile` WHERE `uid`=$ph;")->fetch_assoc();
                   <p class="text-muted mb-4"><?php echo $info["city"];?></p>
                   <div class="d-flex justify-content-center mb-2">
                     <button type="button" onclick="window.location.href='edit_profile.php'" class="btn btn-primary">Edit profile</button>
+                   <?php
+         
+         
+          
+          $v=fire("SELECT `phone` FROM `admin` WHERE `phone`='$ph';")->fetch_assoc();
+          if ($v["phone"]!= "")
+          {
+            echo '<a href="dashboard.php">Check Notifications</a>';
+          }
+            
+          ?>
+          
                     <hr>
                     <button type="button" onclick="window.location.href='kill_session.php'" class="btn btn-danger ">Logout</button>
 

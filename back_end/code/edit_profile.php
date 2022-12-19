@@ -12,11 +12,7 @@
   </head>
   <body>
 <?php
-if(isset($_POST["submit"])) 
-  {
-    
-    upload("uploads/","fileToUpload");  
-  } 
+
 include 'navbar.php';
 require 'functions.php';
 
