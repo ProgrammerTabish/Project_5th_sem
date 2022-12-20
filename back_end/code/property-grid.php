@@ -2,6 +2,7 @@
 <?php
 session_start();
 include "navbar.php";
+include "functions.php";
 $uid = $_SESSION["uid_session"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $ct =$_POST["city"];
@@ -9,7 +10,7 @@ $st =$_POST["state"];
 $lm =$_POST["landmark"];
 $ulp =$_POST["ulpin"];
 
-    $op=fire("SELECT * FROM `address` WHERE `ulpin`='$ulp'||`state`='$st'||`city`='$ct'||`landmark`='$lm';");
+    // $op=fire("SELECT * FROM `address` WHERE `ulpin`='$ulp'||`state`='$st'||`city`='$ct'||`landmark`='$lm';");
 
 }
 ?>
@@ -65,25 +66,59 @@ $ulp =$_POST["ulpin"];
         <div class="container d-flex flex-wrap justify-content-center">
   
   
-        <div class="card m-3" style="width: 18rem;">
-          <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Type</h5>
-            <p class="card-text">Discription about the property it can be location or something else</p>
-          </div>
-          <ul class="list-group list-group-flush">
-              <li class="list-group-item">Rate</li>
-            <li class="list-group-item">Ratings</li>
-            <li class="list-group-item">Negotiable or not</li>
-            <li class="list-group-item">Address</li>
-            <li class="list-group-item">UlPIN</li>
-            <li class="list-group-item"> <a href="">View</a> </li>
-          </ul>
-          <div class="card-body">
-              <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
-            <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
-          </div>
+        <?php
+
+$op=fire("SELECT * FROM `address` WHERE `ulpin`='$ulp'||`state`='$st'||`city`='$ct'||`landmark`='$lm';");
+        $prop=fire("SELECT * FROM `property`");
+
+
+        while ($row = $prop->fetch_assoc()) {
+            $ulp = $row["ulpin"];
+            $ui = $row["uid"];
+            $pdf = fire("SELECT * FROM `documents` WHERE `ulpin`=$ulp")->fetch_assoc();
+            $detial = fire("SELECT * FROM `details` WHERE `ulpin`=$ulp")->fetch_assoc();
+            $ad = fire("SELECT * FROM `address` WHERE `ulpin`=$ulp")->fetch_assoc();
+            $usr = fire("SELECT * FROM `user_info` WHERE `uid`=$ui")->fetch_assoc();
+            $usr_p = fire("SELECT * FROM `user_profile` WHERE `uid`=$ui")->fetch_assoc();
+            // $prp=fire("SELECT * FROM `property` WHERE `ulpin`=$ulp")->fetch_assoc();
+        if($prp["approval_status"]==0)
+        {
+            $ap="NOT APPROVED!";
+        }
+        else{
+            $ap="APPROVED!";
+        }
+            echo '  <div class="card m-3" style="width: 18rem;">
+            <img class="card-img-top" src="'.$detial["image_1"].'" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">City:'.$ad["city"].'</h5>
+                <p class="card-text">Discription:'.$ad["landmark"].'</p>
+            </div>
+            <ul class="list-group list-group-flush">
+             
+                <li class="list-group-item">District:'.$ad["state"].'</li>
+                <li class="list-group-item">Rate:'.$detial["rate"].'</li>
+                <li class="list-group-item">Area:'.$detial["area"].'</li>
+                <li class="list-group-item">Registration status:'.$ap.'</li>
+                <li class="list-group-item"><a href="'.$pdf["pdf_addr"].'" download="pdf">
+                        Download property documents!
+                    </a>
+                </li>
+                <li class="list-group-item">Applied on : '.$row["registered_time"].'</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
+                <a href="#" class="card-link">Buy <img src="icons/buy_icon.jpeg" alt="" width="50" height="50"></a>
+            </div>
         </div>
+        ';
+        
+        
+        
+        }
+        
+        
+        ?>
        
   
 

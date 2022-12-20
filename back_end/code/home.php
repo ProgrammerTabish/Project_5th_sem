@@ -20,10 +20,10 @@
 
     <?php
 
-    include "navbar.php"; ?>
+    include "navbar.php";   include "functions.php"; ?>
 
 
-
+ 
 
 
 
@@ -46,35 +46,42 @@
 
 <?php
 
-// $prop=fire("SELECT * FROM `property`");
+$prop=fire("SELECT * FROM `property`");
 
 
-// while ($row = $prop->fetch_assoc()) {
-    // $ulp = $row["ulpin"];
-    // $ui = $row["uid"];
-    // $pdf = fire("SELECT `pdf_addr` FROM `documents` WHERE `ulpin`=$ulp;")->fetch_assoc()["pdf_addr"];
-    // $detial = fire("SELECT * FROM `details` WHERE `ulpin`=$ulp")->fetch_assoc();
-    // $ad = fire("SELECT * FROM `address` WHERE `ulpin`=$ulp")->fetch_assoc();
-    // $usr = fire("SELECT * FROM `user_info` WHERE `uid`=$ui")->fetch_assoc();
-    // $usr_p = fire("SELECT * FROM `user_profile` WHERE `uid`=$ui")->fetch_assoc();
-
+while ($row = $prop->fetch_assoc()) {
+    $ulp = $row["ulpin"];
+    $ui = $row["uid"];
+    $pdf = fire("SELECT * FROM `documents` WHERE `ulpin`=$ulp")->fetch_assoc();
+    $detial = fire("SELECT * FROM `details` WHERE `ulpin`=$ulp")->fetch_assoc();
+    $ad = fire("SELECT * FROM `address` WHERE `ulpin`=$ulp")->fetch_assoc();
+    $usr = fire("SELECT * FROM `user_info` WHERE `uid`=$ui")->fetch_assoc();
+    $usr_p = fire("SELECT * FROM `user_profile` WHERE `uid`=$ui")->fetch_assoc();
+    // $prp=fire("SELECT * FROM `property` WHERE `ulpin`=$ulp")->fetch_assoc();
+if($prp["approval_status"]==0)
+{
+    $ap="NOT APPROVED!";
+}
+else{
+    $ap="APPROVED!";
+}
     echo '  <div class="card m-3" style="width: 18rem;">
-    <img class="card-img-top" src="icons/logo.jpg" alt="Card image cap">
+    <img class="card-img-top" src="'.$detial["image_1"].'" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">Type:</h5>
-        <p class="card-text">Discription:</p>
+        <h5 class="card-title">City:'.$ad["city"].'</h5>
+        <p class="card-text">Discription:'.$ad["landmark"].'</p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">City:</li>
-        <li class="list-group-item">District:</li>
-        <li class="list-group-item">Rate:</li>
-        <li class="list-group-item">Area:</li>
-        <li class="list-group-item">Registration status:</li>
-        <li class="list-group-item"><a href="" download="pdf">
+     
+        <li class="list-group-item">District:'.$ad["state"].'</li>
+        <li class="list-group-item">Rate:'.$detial["rate"].'</li>
+        <li class="list-group-item">Area:'.$detial["area"].'</li>
+        <li class="list-group-item">Registration status:'.$ap.'</li>
+        <li class="list-group-item"><a href="'.$pdf["pdf_addr"].'" download="pdf">
                 Download property documents!
             </a>
         </li>
-        <li class="list-group-item">Address</li>
+        <li class="list-group-item">Applied on : '.$row["registered_time"].'</li>
     </ul>
     <div class="card-body">
         <a href="#" class="card-link">Comments <img src="icons/comment.png" alt="" width="50" height="50"></a>
@@ -85,7 +92,7 @@
 
 
 
-// }
+}
 
 
 

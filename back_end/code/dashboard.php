@@ -95,7 +95,8 @@ body {
     </style>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 <script type="text/javascript">
 function update(str1,str2, addr) {
     // console.log(strings);
