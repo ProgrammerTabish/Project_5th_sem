@@ -11,22 +11,22 @@ The **Real Estate Management System** is designed to streamline the process of m
 - **User Authentication**: Secure login and user management to ensure data privacy and access control.
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript, React
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: PHP
+- **Database**: MySQL
 - **Version Control**: Git & GitHub
 
 ## System Architecture
-1. **Frontend**: The user interface, built with React, provides an intuitive platform for managing properties, clients, and transactions. It includes features for searching, filtering, and displaying property details.
-2. **Backend**: Node.js and Express.js handle server-side logic, including processing requests, managing data, and interacting with the database.
-3. **Database**: MongoDB is used to store information about properties, clients, and transactions.
+1. **Frontend**: The user interface, built with HTML, CSS, and JavaScript, provides an intuitive platform for managing properties, clients, and transactions. It includes features for searching, filtering, and displaying property details.
+2. **Backend**: PHP handles server-side logic, including processing requests, managing data, and interacting with the database.
+3. **Database**: MySQL is used to store information about properties, clients, and transactions.
 4. **Authentication**: User authentication is managed to ensure secure access to the system.
 
 ## Installation & Setup
 
 ### Prerequisites:
-- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/)
-- [MongoDB](https://www.mongodb.com/try/download/community) database
+- [PHP](https://www.php.net/) and [Composer](https://getcomposer.org/)
+- [MySQL](https://dev.mysql.com/downloads/)
 
 ### Steps:
 1. **Clone the Repository**:
@@ -36,35 +36,26 @@ The **Real Estate Management System** is designed to streamline the process of m
     ```
 
 2. **Backend Setup**:
-   - Navigate to the backend directory and install dependencies:
+   - Navigate to the backend directory and set up the environment:
      ```bash
      cd backend
-     npm install
      ```
-   - Configure database connection in `config.js`:
-     ```javascript
-     module.exports = {
-       db: 'mongodb://localhost:27017/real_estate'
-     };
+   - Configure database connection in `config.php`:
+     ```php
+     <?php
+     $dbHost = 'localhost';
+     $dbName = 'real_estate';
+     $dbUser = 'root';
+     $dbPass = '';
+     ?>
      ```
-   - Start the backend server:
-     ```bash
-     npm start
-     ```
+   - Import the database schema from `database.sql` into MySQL.
 
 3. **Frontend Setup**:
-   - Navigate to the frontend directory and install dependencies:
-     ```bash
-     cd ../frontend
-     npm install
-     ```
-   - Start the frontend development server:
-     ```bash
-     npm start
-     ```
+   - Ensure all frontend files are in the `frontend` directory. You may need to configure the web server to serve these files.
 
 4. **Database Setup**:
-   - Ensure MongoDB is running and accessible at the specified URI.
+   - Ensure MySQL is running and accessible with the credentials specified in `config.php`.
    - Import any initial data if necessary.
 
 ## Demo
@@ -74,19 +65,18 @@ Check out the live demo of the project [here](https://your-demo-link.com).
 ```bash
 real-estate-management-system/
 ├── backend/
-│   ├── config.js            # Configuration files
+│   ├── config.php            # Configuration files
 │   ├── models/              # Database models
 │   ├── routes/              # API routes
 │   ├── controllers/         # Controllers for handling requests
 │   ├── services/            # Business logic and services
-│   └── server.js            # Main server file
+│   └── index.php            # Main server file
 ├── frontend/
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── pages/           # React pages
-│   │   ├── services/        # Frontend services and APIs
-│   │   └── App.js           # Main React application file
-│   └── public/              # Public assets and index.html
+│   ├── css/                  # Stylesheets
+│   ├── js/                   # JavaScript files
+│   ├── images/               # Images and assets
+│   ├── index.html            # Main HTML file
+│   └── ...                   # Additional HTML files and assets
 ├── README.md                # Project documentation
 └── LICENSE                  # License information
 ```
